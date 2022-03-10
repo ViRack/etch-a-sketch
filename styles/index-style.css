@@ -1,0 +1,78 @@
+@import 'meyer-reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Damion&family=Fredoka:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap');
+
+/* Structure */
+
+body {
+    background-color: #6d98b1;
+}
+
+inner-column {
+    display: flex;
+    flex-direction: column;
+	
+    width: 90%;
+    max-width: 1100px;
+    margin-right: auto;
+    margin-left: auto;
+
+    padding: 10px;
+}
+
+header {
+    background-color: transparent;
+    color: black;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    gap: 85%;
+}
+
+header a {
+    font-family: 'Fredoka', sans-serif;
+    display: flex;
+    color: black;
+    text-align: right;
+    text-decoration: none;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* options */
+
+.grid-size {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Fredoka', sans-serif;
+    border: 5px solid black;
+
+
+    justify-content: center;
+    gap: 10px;
+}
+
+.color {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Fredoka', sans-serif;
+    border: 5px solid black;
+
+
+    justify-content: center;
+    gap: 10px;
+}
+
+/* grid */
+
+.grid-square {
+    display: inline;
+    background-color: white;
+    height: 15px;
+    width: 15px;
+    border: 1px solid black;
+}

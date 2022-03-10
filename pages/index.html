@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Etch-a-Sketch</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../styles/index-style.css">
+        <script src="../js/script.js" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <inner-column>
+                <div class="header">
+                    <div class="logo">
+                        <a href="index.html">Etch-a-Sketch</a>
+                    </div>
+                    <div class="links">
+                        <a href="about.html">About</a>
+                    </div>
+                </div>
+            </inner-column>
+        </header>
+
+        <main>
+            <!-- Options -->
+            <section>
+                <inner-column>
+                    <div class="grid-size">
+                        <button id="10" onclick="createGrid(10)">10x10</button>
+                        <button id="15" onclick="createGrid(15)">15x15</button>
+                        <button id="20" onclick="createGrid(20)">20x20</button>
+                    </div>
+                    <div class="color">
+                        <button class="color-choice" style="background-color: black; color: white;">Black</button>
+                        <button class="color-choice" style="background-color: green;">Green</button>
+                        <button class="color-choice" style="background-color: blue">Blue</button>
+                        <button class="color-choice" style="background-color: red">Red</button>
+                        <button class="color-choice" style=" background-color:white; color: black;">Eraser</button>
+                    </div>
+                </inner-column>
+            </section>
+
+            <!-- grid -->
+            <section>
+                <inner-column>
+                    <div id="grid">
+                        
+                    </div>
+                </inner-column>
+            </section>
+
+        </main>
+    </body>
+</html>
