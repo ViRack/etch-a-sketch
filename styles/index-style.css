@@ -5,7 +5,7 @@
 /* Structure */
 
 body {
-    background-color: #6d98b1;
+    background-color: #c7f744;
 }
 
 inner-column {
@@ -69,6 +69,10 @@ main {
     margin-right: 10px;
 }
 
+.grid-option:hover {
+    box-shadow: 0px 3px  #7444F7;
+}
+
 .color {
     display: flex;
     flex-direction: row;
@@ -89,6 +93,7 @@ main {
     box-shadow: 0px 3px  #1d2c35;
     padding: 5px;
 
+    border: .15rem solid black;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -96,7 +101,7 @@ main {
 }
 
 .color-choice:hover {
-    box-shadow: 0px 3px  #b2d5e9;
+    box-shadow: 0px 3px  #7444F7;
 }
 
 /* grid */
@@ -108,8 +113,8 @@ main {
     height: 15px;
     width: 15px;
     gap: none;
-    margin: none;
     border: 1px solid black;
+    margin-bottom: 0px;
 }
 
 .grid-square:hover {
