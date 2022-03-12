@@ -1,4 +1,22 @@
+let gridSet = false;
+let clicked = false;
+let color;
+
+function removeAllChildNodes(CONTAINER) {
+    while(CONTAINER.firstChild) {
+        CONTAINER.removeChild(CONTAINER.firstChild);
+    }
+}
+
 function createGrid(size) {
+
+    if (gridSet = false) {
+        gridSet = true;
+    } else {
+        const CONTAINER = document.querySelector('#grid');
+        removeAllChildNodes(CONTAINER);
+    }
+
     console.log("in createGrid");
     let grid        = new Array(size * 2); // doubled to make room for line breaks. odd indexee's of i will contain a line break.
     let gridContent = new Array(size * 2);
@@ -18,7 +36,9 @@ function createGrid(size) {
                 gridContent[i][j].classList.add("grid-square");
             }
         } else {
-            rows[i] = document.createElement('br');
+            rows[i] = document.createElement('div');
+            rows[i].setAttribute("onclick", "colorTriggered();");
+            rows[i].classList.add("grid-break");
         }
     }
 
@@ -29,22 +49,12 @@ function createGrid(size) {
                 grid[i][j].appendChild(gridContent[i][j]);
             }
         } else {
+            grid[i] = document.querySelector("#grid");
             grid[i].appendChild(rows[i]);
         }
     }
 }
 
-function setHoverColor(color) {
-    console.log("in setHoverColor");
-
-    let css = "color-choice:hover{box-shadow: 3px 6px 5px " + color + "}";        
-    let style = document.createElement('style');
-    if(style.styleSheet) {
-        style.styleSheet.cssText = css;
-    }
-    else {
-        style.appendChild(document.createTextNode(css));
-    }
-
-    document.getElementsByTagName('head')[0].appendChild(style);
+function colorTriggered() {
+    console.log("in colorTriggered");
 }
