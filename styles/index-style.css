@@ -34,7 +34,7 @@ header {
 
 header a {
     font-family: 'Bree Serif', serif;
-        display: flex;
+    display: flex;
     color: black;
     text-align: right;
     text-decoration: none;
@@ -140,4 +140,32 @@ main {
 
 #grid-inner-column {
     min-width: 800px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+#about-title {
+    display: inline-flex;
+    font-family: 'Bree Serif', serif;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.about {
+    display: inline-flex;
+    font-family: 'Bree Serif', serif;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#git-link {
+    display: inline-flex;
+    color: inherit;
+    text-decoration: none;
 }

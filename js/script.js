@@ -2,6 +2,7 @@ let gridSet = false;
 let clicked = false;
 let color = "#white";
 let gridContent;
+let grid;
 
 function removeAllChildNodes(CONTAINER) {
     while(CONTAINER.firstChild) {
@@ -21,8 +22,9 @@ function createGrid(size) {
     }
 
     console.log("in createGrid");
-    let grid        = new Array(size * 2); // doubled to make room for line breaks. odd indexee's of i will contain a line break.
+    grid        = new Array(size * 2); // doubled to make room for line breaks. odd indexee's of i will contain a line break.
     gridContent = new Array(size * 2);
+
     let rows        = new Array(size);
 
     for (let i = 0; i < size; i++) {
@@ -32,13 +34,17 @@ function createGrid(size) {
         }
     }
 
+    let id;
     for (let i = 0; i < size; i++){
         if (i % 2 === 0)  {
             for (let j = 0; j < size; j++) {
+                id = `${i}-${j}`
                 gridContent[i][j] = document.createElement('div');
                 gridContent[i][j].classList.add("grid-square");
-                gridContent[i][j].setAttribute("onclick", "colorTriggered();")
-                gridContent[i][j].setAttribute("onmouseover", "fillGridSquare();");
+                gridContent[i][j].setAttribute("id", id);
+                gridContent[i][j].setAttribute("onclick", "colorTriggered(this);");           
+                gridContent[i][j].setAttribute("onmouseover", "fillGridSquare(this);")
+                console.log()
             }
         } else {
             rows[i] = document.createElement('div');
@@ -61,7 +67,7 @@ function createGrid(size) {
 
 function setColor(newColor) {
     if (newColor.length === 0) {
-        color = "#white";
+        color = newColor;
     } else {
         color = newColor;
     }
@@ -72,18 +78,25 @@ function colorTriggered() {
 
     if(clicked) {
         clicked = false;
+        console.log("fill in mode: Active using shade: " + color);
+        document.getElementById(e.getAttribute("id")).style.backgroundColor = color;
         return;
     } else {
         clicked = true;
-        console.log(color);
+        console.log("fill in mode: Inactive using shade: " + color);
     }
 }
 
-function fillGridSquare() {
-    if (clicked) {
-        console.log("grid hovering!");
-    }
-    else {
+function fillGridSquare(e) {
+    console.log(e.getAttribute("id"));
+
+    if(clicked) {
+        console.log("fill in mode: Active using shade: " + color);
+
+        document.getElementById(e.getAttribute("id")).style.backgroundColor = color;
+
         return;
+    } else {
+        console.log("fill in mode: Inactive using shade: " + color);
     }
 }
