@@ -1,22 +1,49 @@
-let gridSet = false;
+let gridSet = false; // A grid has been created or not
 let clicked = false;
 let color = "#white";
 let gridContent;
 let grid;
 
-function removeAllChildNodes(CONTAINER) {
+function deleteGrid(CONTAINER) {
     while(CONTAINER.firstChild) {
         CONTAINER.removeChild(CONTAINER.firstChild);
     }
 }
 
 function createGrid(size) {
+    if (gridSet = false) {
+        gridSet = true;
+    } else {
+        const CONTAINER = document.querySelector('#grid');
+        deleteGrid(CONTAINER);
+        color = "#white";
+        clicked = false;
+    }
+
+    grid.style.gridTemplateColumns = `repeat(${size} , 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    let amount = size * size; // creating a 2d number for size (row and columns)
+    for (let i = 0; i < amount; i++) {
+        let gridSquare = document.createElement("div");
+        gridSquare.classList.add("grid-square");
+        gridSquare.setAttribute("id", i);
+        gridSquare.setAttribute("onclick", "colorTriggered(this);");           
+        gridSquare.setAttribute("onmouseover", "fillGridSquare(this);")
+        grid.insertAdjacentElement("beforeend", gridSquare);
+}
+}
+
+// original function 
+// Upside ~ each grid square has it's own individual ID
+// Downside ~ slower, more difficult to read code, 
+function createGrid2(size) {
 
     if (gridSet = false) {
         gridSet = true;
     } else {
         const CONTAINER = document.querySelector('#grid');
-        removeAllChildNodes(CONTAINER);
+        deleteGrid(CONTAINER);
         color = "#white";
         clicked = false;
     }
