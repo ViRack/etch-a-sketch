@@ -24,9 +24,11 @@
             <section>
                 <inner-column>
                     <div class="grid-size">
-                        <button class="grid-option" id="15" onclick="createGrid(15)">15x15</button>
-                        <button class="grid-option" id="30" onclick="createGrid(30)">30x30</button>
-                        <button class="grid-option" id="45" onclick="createGrid(45)">45x45</button>
+                        <form onSubmit="return false;">
+                            <label for="grid-size" id="user-prompt">Enter Grid Size (2 - 100)</label>
+                            <input type="text" id="user-size">
+                            <label for="validation" id="validation">"Art is not what you see, but what you make others see." - Edgar Degas</label>
+                        </form>
                     </div>
 
                     <div class="color">
@@ -43,9 +45,7 @@
             <!-- grid -->
             <section>
                 <inner-column id="grid-inner-column">
-                    <div id="grid-background">
-                        <div id="grid">
-                        </div>
+                    <div id="grid">
                     </div>
                 </inner-column>
             </section>

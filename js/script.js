@@ -3,6 +3,17 @@ let clicked = false;
 let color = "#white";
 let gridContent;
 let grid;
+const userInput = document.getElementById('user-size');
+userInput.addEventListener('keydown', (e) => {
+    console.log("in eventlistern")
+    if (e.key === "Enter") {
+        console.log("inside if")
+        let gridSize = userInput.value;
+        console.log(gridSize);
+        createGrid(gridSize);
+    }
+
+})
 
 function deleteGrid(CONTAINER) {
     while(CONTAINER.firstChild) {
@@ -11,6 +22,10 @@ function deleteGrid(CONTAINER) {
 }
 
 function createGrid(size) {
+    if (!validate(size)) {
+        return;
+    }
+
     if (gridSet = false) {
         gridSet = true;
     } else {
@@ -19,6 +34,8 @@ function createGrid(size) {
         color = "#white";
         clicked = false;
     }
+
+    let grid = document.querySelector("#grid");
 
     grid.style.gridTemplateColumns = `repeat(${size} , 1fr)`;
     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
@@ -31,66 +48,16 @@ function createGrid(size) {
         gridSquare.setAttribute("onclick", "colorTriggered(this);");           
         gridSquare.setAttribute("onmouseover", "fillGridSquare(this);")
         grid.insertAdjacentElement("beforeend", gridSquare);
-}
-}
-
-// original function 
-// Upside ~ each grid square has it's own individual ID
-// Downside ~ slower, more difficult to read code, 
-function createGrid2(size) {
-
-    if (gridSet = false) {
-        gridSet = true;
-    } else {
-        const CONTAINER = document.querySelector('#grid');
-        deleteGrid(CONTAINER);
-        color = "#white";
-        clicked = false;
-    }
-
-    console.log("in createGrid");
-    grid        = new Array(size * 2); // doubled to make room for line breaks. odd indexee's of i will contain a line break.
-    gridContent = new Array(size * 2);
-
-    let rows        = new Array(size);
-
-    for (let i = 0; i < size; i++) {
-        if (i % 2 === 0) {
-            grid[i] = new Array(size);
-            gridContent[i] = new Array(size);
-        }
-    }
-
-    let id;
-    for (let i = 0; i < size; i++){
-        if (i % 2 === 0)  {
-            for (let j = 0; j < size; j++) {
-                id = `${i}-${j}`
-                gridContent[i][j] = document.createElement('div');
-                gridContent[i][j].classList.add("grid-square");
-                gridContent[i][j].setAttribute("id", id);
-                gridContent[i][j].setAttribute("onclick", "colorTriggered(this);");           
-                gridContent[i][j].setAttribute("onmouseover", "fillGridSquare(this);")
-                console.log()
-            }
-        } else {
-            rows[i] = document.createElement('div');
-            rows[i].classList.add("grid-break");
-        }
-    }
-
-    for (let i = 0; i < size; i++) {
-        if (i % 2 === 0) {
-            for (let j = 0; j < size; j++) {
-                grid[i][j] = document.querySelector("#grid");
-                grid[i][j].appendChild(gridContent[i][j]);
-            }
-        } else {
-            grid[i] = document.querySelector("#grid");
-            grid[i].appendChild(rows[i]);
-        }
     }
 }
+
+function validate(size) {
+    if (size < 2 || size > 100) {
+        return false;
+    }
+
+    return true;
+} 
 
 function setColor(newColor) {
     if (newColor.length === 0) {
