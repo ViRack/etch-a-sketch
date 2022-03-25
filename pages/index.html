@@ -20,36 +20,40 @@
         </header>
 
         <main>
-            <!-- Options -->
-            <section>
-                <inner-column>
-                    <div class="grid-size">
-                        <form onSubmit="return false;">
-                            <label for="grid-size" id="user-prompt">Enter Grid Size (2 - 100)</label>
-                            <input type="text" id="user-size">
-                            <label for="validation" id="validation">"Art is not what you see, but what you make others see." - Edgar Degas</label>
-                        </form>
-                    </div>
-
-                    <div class="color">
-                        <button class="color-choice" onclick="setColor('#D92630')" style="background-color: #D92630; color: rgba(255, 255, 255, 0.788);">Red</button>
-                        <button class="color-choice" onclick="setColor('#2ED52A')" style="background-color: #2ED52A; color: rgba(255, 255, 255, 0.788);">Green</button>
-                        <button class="color-choice" onclick="setColor('#26D9CF')" style="background-color: #26D9CF; color: rgba(255, 255, 255, 0.788);">Blue</button>
-                        <button class="color-choice" onclick="setColor('#CC29CF')" style="background-color: #CC29CF; color: rgba(255, 255, 255, 0.788);">Purple</button>
-                        <button class="color-choice" onclick="setColor('#000000')"  style="background-color: #000000; color: rgba(255, 255, 255, 0.788);">Black</button>
-                        <button class="color-choice" onclick="setColor('rgb(233, 233, 233)')"  style="background-color: #ffffff; color: black;">Eraser</button>
-                    </div>
-                </inner-column>
-            </section>
-
             <!-- grid -->
             <section>
+                <inner-column>
                 <inner-column id="grid-inner-column">
-                    <div id="grid">
+                    <div class="interface">
+                        <div class="choices">
+                            <div class="grid-size">
+                                <form onSubmit="return false;">
+                                    <label for="grid-size" id="user-prompt">Enter Grid Size (2 - 100)</label>
+                                    <input type="text" id="user-size">
+                                </form>
+                            </div>
+
+                            <div class="color">
+                                <button class="color-choice" onclick="setColor('#D92630')" style="background-color: #D92630; color: rgba(255, 255, 255, 0.788);">Red</button>
+                                <button class="color-choice" onclick="setColor('#2ED52A')" style="background-color: #2ED52A; color: rgba(255, 255, 255, 0.788);">Green</button>
+                                <button class="color-choice" onclick="setColor('#26D9CF')" style="background-color: #26D9CF; color: rgba(255, 255, 255, 0.788);">Blue</button>
+                                <button class="color-choice" onclick="setColor('#CC29CF')" style="background-color: #CC29CF; color: rgba(255, 255, 255, 0.788);">Purple</button>
+                                <button class="color-choice" onclick="setColor('#000000')"  style="background-color: #000000; color: rgba(255, 255, 255, 0.788);">Black</button>
+                                <button class="color-choice" onclick="setColor('rgb(233, 233, 233)')"  style="background-color: #ffffff; color: black;">Eraser</button>
+                            </div>
+                            
+                        </div>
+                        
+                        <div id="grid">
+                        </div>
                     </div>
+                </inner-column>
                 </inner-column>
             </section>
 
+            <footer>
+                <p>hello</p>
+            </footer>
         </main>
     </body>
 </html>
